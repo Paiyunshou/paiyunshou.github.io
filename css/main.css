@@ -1,14 +1,14 @@
 :root {
   --width-main: 720px;
-  --fsp: 17px;
+  --fsp: 1rem;
   --fsh2: calc(var(--fsp) + 11px);
   --fsh3: calc(var(--fsp) + 7px);
   --fsh4: calc(var(--fsp) + 4px);
   --side-content-width: 224px;
   --gap-margin: 16px;
   --gap-padding: 16px;
-  --gap-p: calc(17px + 4px);
-  --gap-p-compact: calc(17px * 0.75);
+  --gap-p: calc(1rem + 4px);
+  --gap-p-compact: calc(1rem * 0.75);
 }
 @media screen and (min-width: 2048px) {
   :root {
@@ -952,7 +952,7 @@
   }
 }
 pre {
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   font-size: 0.8125rem;
   tab-size: 4;
   -moz-tab-size: 4;
@@ -967,7 +967,7 @@ a:hover {
   color: var(--accent);
 }
 .md-text p:not([class]) {
-  text-align: left;
+  text-align: justify;
 }
 hr {
   color: var(--text-meta);
@@ -989,7 +989,7 @@ table:not([class]) {
   margin: 1rem 0;
   max-width: 100%;
   vertical-align: text-top;
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
   font-size: var(--fsp);
   display: table;
 }
@@ -1255,7 +1255,7 @@ a.button.start.gradient {
   border-radius: 6px;
 }
 .canonical-tip .headline {
-  font-size: calc(17px + 11px);
+  font-size: calc(1rem + 11px);
 }
 .canonical-tip a {
   display: block;
@@ -1491,7 +1491,7 @@ a.button.start.gradient {
 code {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
 }
 p>code:not([class]),
 li>code:not([class]) {
@@ -1508,8 +1508,7 @@ pre:not([class]):has(>code) {
   border-radius: 16px;
   overflow: hidden;
   background: var(--block);
-  line-height: 1.5;
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   box-sizing: border-box;
 }
 @media screen and (min-width: 500px) {
@@ -1551,8 +1550,8 @@ pre:not([class]):has(>code) {
   line-height: 1.5;
 }
 .md-text .highlight >table::-webkit-scrollbar {
-  height: 4px;
-  width: 4px;
+  height: 0px;
+  width: 0px;
 }
 .md-text .highlight >table::-webkit-scrollbar-track-piece,
 .md-text .highlight >table::-webkit-scrollbar-corner {
@@ -1621,7 +1620,7 @@ pre:not([class]):has(>code) {
 }
 .md-text .gist .blob-code-inner {
   color: var(--text-p1);
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
 }
 .md-text .gist .gist-meta {
   background: var(--block);
@@ -1731,6 +1730,9 @@ table:not([class]) {
 }
 .md-text .highlight.matlab .code:before {
   content: "MATLAB";
+}
+.md-text .highlight.nginx .code:before {
+  content: "Nginx";
 }
 .code>pre .code:before {
   display: none;
@@ -1874,12 +1876,29 @@ table:not([class]) {
   outline: none;
 }
 html {
-  font-family: system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  font-family: "LXGW WenKai Screen", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   scroll-padding-top: 8px;
-  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+html::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--text-meta);
+  cursor: pointer;
+  border-radius: 8px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--text-p3);
 }
 body {
   background: var(--background);
@@ -1901,7 +1920,7 @@ input {
 }
 input.copy-area {
   display: block;
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   color: var(--text-p3);
@@ -2236,7 +2255,7 @@ div.toast.show {
   margin: 1rem calc(1rem - 4px);
 }
 .article.banner .content .title {
-  font-size: calc(17px + 9px);
+  font-size: calc(1rem + 9px);
   color: var(--text-banner);
 }
 .article.banner .content h1 {
@@ -2323,10 +2342,10 @@ div.toast.show {
 }
 .article-footer .header {
   font-weight: 500;
-  font-size: calc(17px + 2px);
+  font-size: calc(1rem + 2px);
 }
 .article-footer .body {
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
 }
 .article-footer .body >.link {
   margin: 0;
@@ -2354,7 +2373,7 @@ div.toast.show {
   word-break: break-all;
 }
 .article-footer .body .post-title p {
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
 }
 .article-footer section+section {
   margin-top: 1rem;
@@ -2862,7 +2881,7 @@ div.toast.show {
   background-image: url("https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg");
 }
 .paginator-wrap .current {
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   background: var(--block);
 }
 .paginator-wrap .extend {
@@ -2921,7 +2940,7 @@ article.md-text.content+.related-wrap {
 .related-posts .item .title {
   color: var(--text-p1);
   font-weight: 500;
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
   font-size: var(--fsp);
   transition: color 0.2s ease-out, border 0.2s ease-out;
   -moz-transition: color 0.2s ease-out, border 0.2s ease-out;
@@ -2934,7 +2953,7 @@ article.md-text.content+.related-wrap {
 }
 .related-posts .item .excerpt {
   color: var(--text-p3);
-  --fsp: calc(17px - 3px);
+  --fsp: calc(1rem - 3px);
   font-size: var(--fsp);
   margin-top: 0.5rem;
   display: -webkit-box;
@@ -2969,7 +2988,7 @@ article.md-text.content+.related-wrap {
   margin: 0;
   line-height: 1.2;
   color: var(--text-p1);
-  font-size: calc(17px + 2px);
+  font-size: calc(1rem + 2px);
 }
 .related-wrap#read-next .body a:hover {
   color: var(--accent) !important;
@@ -2978,7 +2997,7 @@ article.md-text.content+.related-wrap {
   text-align: right;
 }
 .wiki+.related-wrap#read-next .item a {
-  font-size: calc(17px + 7px);
+  font-size: calc(1rem + 7px);
 }
 .wiki+.related-wrap#read-next .item#prev a {
   color: var(--text-p3);
@@ -3379,9 +3398,6 @@ a.tag-plugin.button:hover {
 .md-text .tag-plugin.chat .cap {
   color: var(--text-p3);
 }
-.md-text .tag-plugin.chat * {
-  word-break: break-all;
-}
 .md-text .tag-plugin.chat.iphone11 {
   width: 329px;
   height: 658px;
@@ -3391,7 +3407,7 @@ a.tag-plugin.button:hover {
   box-shadow: unset;
 }
 .md-text .tag-plugin.chat.iphone11 >.device-image {
-  background-image: url("https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/frame/iphone11.svg");
+  background-image: url("https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/frame/iphone11.svg");
   width: 100%;
   height: 100%;
   position: absolute;
@@ -4367,7 +4383,7 @@ a.tag-plugin.button:hover {
   border-radius: 4px;
   background: hsla(var(--hue) var(--sat) var(--light) / 0.2);
   color: var(--theme);
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   flex-shrink: 0;
@@ -4414,7 +4430,7 @@ a.tag-plugin.button:hover {
 }
 .tag-plugin.folders {
   margin: var(--gap-p) 0;
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
   font-size: var(--fsp);
   border-top: 1px solid var(--block-border);
   overflow: hidden;
@@ -4468,7 +4484,7 @@ a.tag-plugin.button:hover {
   content: '-';
 }
 .tag-plugin.folders details[open] >div.body {
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
 }
 .tag-plugin.folders details[open] >div.body >:first-child {
   margin-top: 1rem;
@@ -4490,7 +4506,7 @@ details.folding summary {
   margin: -1rem;
   color: var(--text-p2);
   font-weight: 500;
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
   font-size: var(--fsp);
   position: relative;
   line-height: 1.2;
@@ -4533,7 +4549,7 @@ details.folding[open] >div.body {
   padding: 0 1rem 1rem;
   margin: 0 -1rem -1rem;
   color: var(--text-p1);
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
 }
 details.folding[open] >div.body >:first-child {
   margin-top: 1rem;
@@ -5119,7 +5135,7 @@ details.folding[child=iframe] >div.body {
   margin: 2px 0;
   display: inline-flex;
   align-items: center;
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
   font-size: var(--fsp);
   font-weight: 500;
   transition: background 0.2s ease-out, color 0.2s ease-out;
@@ -5480,7 +5496,7 @@ p>strong>span.tag-plugin.icon {
   border-bottom-width: 2px;
   background: var(--card);
   padding: 2px 4px 1px 4px;
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   font-weight: 700;
 }
 .md-text psw {
@@ -5512,7 +5528,7 @@ p>strong>span.tag-plugin.icon {
   color: var(--theme);
   line-height: 1;
   font-weight: 700;
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
 }
 .md-text h1 sup,
 .md-text h2 sup,
@@ -5667,7 +5683,7 @@ p>strong>span.tag-plugin.icon {
   color: var(--text);
 }
 .ds-mdrender p strong {
-  font-size: 17px;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text);
 }
@@ -5694,30 +5710,32 @@ p>strong>span.tag-plugin.icon {
 }
 .tag-plugin.navbar {
   display: inline-flex;
-  background: var(--card);
-  border-radius: 8px;
-  z-index: inherit;
-  box-shadow: 0 0 8px rgba(0,0,0,0.04);
 }
 .tag-plugin.navbar a {
   box-sizing: border-box;
-  padding: 0.25rem 1rem;
-  margin: 2px;
+  padding: 0.25rem 0;
   color: inherit;
-  border-radius: calc(8px - 1px);
+  position: relative;
+}
+.tag-plugin.navbar a+a {
+  margin-left: 1rem;
+}
+.tag-plugin.navbar a:after {
+  content: '';
+  position: absolute;
+  border-radius: 2px;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
 }
-.tag-plugin.navbar a+a {
-  margin-left: 0;
-}
-.tag-plugin.navbar a.active {
-  background: var(--block);
-}
-.tag-plugin.navbar a:hover {
-  background: var(--block);
+.tag-plugin.navbar a.active:after,
+.tag-plugin.navbar a:hover:after {
+  background: var(--theme);
 }
 .md-text .tag-plugin.note {
   position: relative;
@@ -5729,7 +5747,7 @@ p>strong>span.tag-plugin.icon {
   color: var(--text-p1);
 }
 .md-text .tag-plugin.note >.title {
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
   font-size: var(--fsp);
   line-height: 1.5;
   margin-top: var(--gap-p-compact);
@@ -5742,7 +5760,7 @@ p>strong>span.tag-plugin.icon {
 }
 .md-text .tag-plugin.note >.body,
 .md-text .tag-plugin.note >.body p {
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
   font-size: var(--fsp);
   line-height: 1.5;
 }
@@ -5947,7 +5965,7 @@ p>strong>span.tag-plugin.icon {
   flex-direction: column;
   align-items: center;
   text-align: left;
-  --fsp: 17px;
+  --fsp: 1rem;
 }
 .md-text .tag-plugin.poetry .content >.title {
   font-weight: 500;
@@ -5955,7 +5973,7 @@ p>strong>span.tag-plugin.icon {
 }
 .md-text .tag-plugin.poetry .content >.meta {
   color: var(--text-p2);
-  --fsp: calc(17px - 3px);
+  --fsp: calc(1rem - 3px);
   font-size: var(--fsp);
   font-weight: 500;
 }
@@ -5972,7 +5990,7 @@ p>strong>span.tag-plugin.icon {
   font-style: italic;
   color: var(--text-p4);
   margin: var(--gap-p) 0;
-  --fsp: calc(17px - 3px);
+  --fsp: calc(1rem - 3px);
   font-size: var(--fsp);
 }
 .md-text .tag-plugin.poetry .content {
@@ -6031,7 +6049,7 @@ p>strong>span.tag-plugin.icon {
 }
 .md-text.content .tag-plugin.quot h1,
 .md-text.content .tag-plugin.quot h2 {
-  font-size: calc(17px + 11px);
+  font-size: calc(1rem + 11px);
   font-weight: 900;
   padding: 4px 32px 0;
 }
@@ -6045,7 +6063,7 @@ p>strong>span.tag-plugin.icon {
 .md-text.content .tag-plugin.quot h4,
 .md-text.content .tag-plugin.quot h5,
 .md-text.content .tag-plugin.quot h6 {
-  font-size: calc(17px + 7px);
+  font-size: calc(1rem + 7px);
 }
 .md-text.content .tag-plugin.quot p {
   font-size: calc(var(--fsp) + 2px);
@@ -6333,7 +6351,7 @@ p>strong>span.tag-plugin.icon {
   display: block;
   cursor: pointer;
   padding: 0.25rem 0.75rem;
-  --fsp: calc(17px - 3px);
+  --fsp: calc(1rem - 3px);
   font-size: var(--fsp);
   line-height: inherit;
   font-weight: 500;
@@ -6392,6 +6410,9 @@ p>strong>span.tag-plugin.icon {
   position: relative;
   padding-left: 16px;
 }
+.tag-plugin.timeline p>img {
+  border-radius: 8px;
+}
 .tag-plugin.timeline:before {
   content: '';
   position: absolute;
@@ -6412,6 +6433,9 @@ p>strong>span.tag-plugin.icon {
 .l_body[type=story] .md-text.content .tag-plugin.timeline ol,
 .l_body[type=story] .md-text.content .tag-plugin.timeline ul {
   margin-left: 0;
+}
+.l_body[type=story] .md-text.content .tag-plugin.timeline p>img {
+  border-radius: 8px;
 }
 .tag-plugin.timeline .timenode {
   position: relative;
@@ -6499,7 +6523,7 @@ p>strong>span.tag-plugin.icon {
   box-shadow: 0 1px 4px 0px rgba(0,0,0,0.02), 0 2px 8px 0px rgba(0,0,0,0.02);
 }
 .tag-plugin.timeline .body p {
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
 }
 .tag-plugin.timeline .body p img {
   display: block;
@@ -6522,7 +6546,7 @@ p>strong>span.tag-plugin.icon {
   color: var(--text-p1);
   line-height: 1.25;
   padding: 0.75rem 1rem;
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
   font-size: var(--fsp);
 }
 .tag-plugin.timeline[data-api] .body p.title {
@@ -6633,7 +6657,7 @@ aside .tag-plugin.timeline[data-api] .body .lazy-box {
   margin: 0.75rem 0;
 }
 .tag-plugin.timeline .body blockquote p {
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
   margin: 0.25rem;
 }
 .tag-plugin.timeline .body {
@@ -6951,7 +6975,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   width: 100%;
   display: grid;
   margin: 8px 0;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 8px;
 }
 .nav-area .menu::-webkit-scrollbar {
@@ -7073,7 +7097,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 .search-wrapper .search-input {
   width: 100%;
   box-sizing: border-box;
-  font-family: system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+  font-family: "LXGW WenKai Screen", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif;
   font-size: 0.875rem;
   padding: 12px 0;
   color: var(--text);
@@ -7429,6 +7453,23 @@ details.toc[open] >div.body section .header+.doc_tree {
 .widget-wrapper.user-card .widget-header+.widget-body {
   margin: 0.75rem 0;
 }
+.widget-wrapper.user-card .widget-header a {
+  display: flex;
+  align-items: center;
+  color: var(--text-p2);
+  transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+}
+.widget-wrapper.user-card .widget-header a svg {
+  margin-right: 4px;
+  width: 1em;
+  height: 1em;
+}
+.widget-wrapper.user-card .widget-header a:hover {
+  color: var(--text);
+}
 .widget-wrapper.user-card .widget-body {
   text-align: center;
   background: var(--card);
@@ -7454,7 +7495,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 }
 .widgets .widget-wrapper.user-card p.username {
   font-weight: 900;
-  font-size: calc(17px + 11px);
+  font-size: calc(1rem + 11px);
   color: var(--text);
   margin: 0;
 }
@@ -7465,7 +7506,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 .widgets .widget-wrapper.user-card .follow {
   font-weight: 500;
   border-radius: 64px;
-  margin: 1rem 0 0;
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
   background: var(--theme);
   color: #fff;
@@ -7490,7 +7531,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   background: var(--accent);
 }
 .widgets .widget-wrapper.user-card .buttons {
-  margin: 1rem 0;
+  margin-top: 1rem;
   align-self: stretch;
   display: grid;
   grid-gap: 2px;
@@ -7520,6 +7561,9 @@ details.toc[open] >div.body section .header+.doc_tree {
   font-size: 0.75rem;
   color: var(--text-p3);
   font-weight: 500;
+}
+.widget-wrapper.user-card .widget-header+.widget-body {
+  margin-top: 4px;
 }
 .widget-wrapper.post-list .widget-body a {
   font-size: 0.875rem;
@@ -7656,7 +7700,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   word-break: break-all;
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
 }
 .widget-wrapper.timeline .tag-plugin.timeline .timenode {
   z-index: 1;
@@ -7681,7 +7725,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 }
 .widget-wrapper.timeline .tag-plugin.timeline .timenode .body p,
 .widget-wrapper.timeline .tag-plugin.timeline .timenode .body li {
-  --fsp: calc(17px - 3px);
+  --fsp: calc(1rem - 3px);
 }
 .widget-wrapper.timeline .tag-plugin.timeline .timenode .body code {
   background: none;
@@ -7726,8 +7770,13 @@ details.toc[open] >div.body section .header+.doc_tree {
     background: var(--background);
   }
 }
+@media screen and (min-width: 1180px) {
+  .l_left .widget-wrapper.toc {
+    background: none;
+  }
+}
 .widget-wrapper.toc .toc {
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
   padding: 0;
   margin: 0;
   position: relative;
@@ -7807,11 +7856,11 @@ details.toc[open] >div.body section .header+.doc_tree {
 }
 .widget-wrapper.toc .toc .toc-item {
   font-weight: 500;
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
 }
 .widget-wrapper.toc .toc .toc-item .toc-item {
   font-weight: 400;
-  --fsp: calc(17px - 2px);
+  --fsp: calc(1rem - 2px);
 }
 .widget-wrapper.toc .toc ol {
   padding-left: 0;
@@ -8049,12 +8098,15 @@ details.toc[open] >div.body section .header+.doc_tree {
     background: var(--block);
   }
 }
+.leftbar-container .header+.widgets {
+  margin-top: 1rem;
+}
 .post-list #archive {
   padding: 1rem;
 }
 .post-list #archive .archive-header {
   display: inline-block;
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5em;
@@ -8085,7 +8137,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   border-bottom: 1px dashed var(--text-meta);
 }
 .post-list #archive a.post time {
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   margin-right: 1em;
   font-weight: 700;
   flex-shrink: 0;
@@ -8109,7 +8161,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   align-items: center;
   justify-content: space-between;
   font-weight: 500;
-  font-size: calc(17px - 2px);
+  font-size: calc(1rem - 2px);
 }
 .post-list #cats a.cat.child {
   padding-left: 2rem;
@@ -8126,7 +8178,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 }
 .post-list #cats a.cat .badge {
   font-weight: 700;
-  font-family: Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   opacity: 0.5;
   font-size: 0.75rem;
 }
@@ -8183,7 +8235,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   text-indent: 0;
 }
 .l_body[type=story] .md-text.content {
-  --fsp: calc(17px + 1px);
+  --fsp: calc(1rem + 1px);
   --gap-p: 2rem;
 }
 .l_body[type=story] .md-text.content >div.tag-plugin,
@@ -8359,7 +8411,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 .l_body[type=story] .md-text.content li p:not([class]),
 .l_body[type=story] .md-text.content .article-footer p:not([class]) {
   text-indent: 0;
-  text-align: left;
+  text-align: justify;
 }
 .l_body[type=story] .md-text.content p>img,
 .l_body[type=story] .md-text.content .tag-plugin.image .image-bg {
@@ -8423,7 +8475,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 .l_body[type=story] .md-text.content>blockquote p:not([class]),
 .md-text.content .tag-plugin.blockquote p:not([class]) {
   color: var(--text-p2);
-  font-size: 17px;
+  font-size: 1rem;
   text-indent: 2em;
 }
 .l_body[type=story] .md-text.content>blockquote:hover:before,
@@ -8761,7 +8813,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   font-weight: 500;
   margin: 1.25rem auto 0.75rem 0;
   line-height: 1.2;
-  font-size: calc(17px + 4px);
+  font-size: calc(1rem + 4px);
   border-bottom: none;
   color: var(--text);
   transition: color 0.2s ease-out;
@@ -8771,7 +8823,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 }
 @media screen and (max-width: 500px) {
   .l_main .post-list .post-title {
-    font-size: calc(17px + 2px);
+    font-size: calc(1rem + 2px);
     margin: 0.5rem 0;
   }
 }
@@ -8851,7 +8903,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   flex-wrap: wrap;
   margin: 0;
   line-height: 2;
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
   font-size: var(--fsp);
 }
 .post-list .post-card .meta.cap,
@@ -8975,7 +9027,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 }
 .post-list .post-card.post.photo .cover .cover-info .headline {
   font-weight: 500;
-  font-size: calc(17px + 7px);
+  font-size: calc(1rem + 7px);
 }
 .post-list .post-card.post.photo .cover .cover-info .caption {
   font-size: 0.875rem;
@@ -8988,7 +9040,7 @@ details.toc[open] >div.body section .header+.doc_tree {
     margin-top: 2px;
   }
   .post-list .post-card.post.photo .cover .cover-info .headline {
-    font-size: calc(17px + 4px);
+    font-size: calc(1rem + 4px);
   }
   .post-list .post-card.post.photo .cover .cover-info .caption {
     font-size: 0.8125rem;
@@ -8996,7 +9048,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 }
 .post-list .post-card.post.photo h2 {
   margin: 0.25rem 0;
-  font-size: calc(17px + 4px);
+  font-size: calc(1rem + 4px);
 }
 .post-list .post-card.wiki article {
   display: flex;
@@ -9134,7 +9186,7 @@ body>.sitebg .siteblur:hover {
 .md-text blockquote ol,
 .md-text ul ol,
 .md-text ol ol {
-  --fsp: calc(17px - 1px);
+  --fsp: calc(1rem - 1px);
   font-size: var(--fsp);
   line-height: 1.5;
 }
@@ -9927,4 +9979,7 @@ a[data-fancybox] {
 }
 .md-text .cmt-body.artalk .artalk .atk-content a {
   --at-color-main: var(--link);
+}
+.md-text .cmt-body.artalk .artalk .atk-content pre>code {
+  padding: 0;
 }
