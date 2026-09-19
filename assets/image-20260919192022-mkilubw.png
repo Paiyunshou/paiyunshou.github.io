@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="极空间网页版"/>
+    <meta name="description" content="极空间网页版"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/home/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="/home/images/favIcon128.png" sizes="128x128">
+    <title>极空间 - 私有云</title>
+    <link rel="stylesheet" href="/home/fonts/zspaceFont/iconfont.css">
+    <script language="javascript">
+    var j = function(url) {
+      window.stop && window.stop()
+      document.execCommand && document.execCommand("Stop", false)
+      window.location = url
+    }
+    var ua = navigator.userAgent.toLowerCase()
+    var isMobile = !!ua.match(/iOS|iPhone|Android|windows Phone|BB\d+/i)
+    var isIPad = !!ua.match(/ipad/i)
+    var href = window.location.href
+    if(!Object.defineProperty||!Array.prototype.forEach) j("/home/error/browser.html")
+    else if (/^http:\/\/(\w+\.)?zconnect.cn((?!login\/jump).)*$/.test(href)) j('https' + href.substr(4))
+    </script>
+    <style>
+      #app_mount_loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white; 
+        z-index: 999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      @keyframes bounce {
+        0%, 45.3% , 100% {
+          transform: translateY(0) scale(1);
+          opacity: 0.25;
+        }
+        22.5% {
+          transform: translateY(-4px) scale(1.5);
+          opacity: 1;
+        }
+      }
+      .app_mount_loading_fade-out {
+        opacity: 0;
+        transition: opacity 0.4s ease-out; /* 持续时间0.5秒，缓动函数ease-out */
+      }
+      .app_mount_loading_fade—ball {
+        display: flex;
+        justify-content: center;
+      }
+      .app_mount_loading_fade—ball span{
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #2f6aff;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        /* 初始透明度设为0.4 */
+        opacity: 0.25;
+        /* 应用跳动动画 */
+        animation: bounce 1.3s infinite cubic-bezier(0.66, 0, 0.34, 1);
+        margin: 0px 6px;
+      }
+      .app_mount_loading_fade—ball span:nth-child(1) {
+        animation-delay: 0.15s;
+      }
+      .app_mount_loading_fade—ball span:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .app_mount_loading_fade—ball span:nth-child(3) {
+        animation-delay: 0.45s;
+      }
+      .app_mount_loading_fade—ball span:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+    </style>
+ 
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script defer src="/home/static/js/lib-axios.b14a43f9.js"></script><script defer src="/home/static/js/lib-vue.dc72da37.js"></script><script defer src="/home/static/js/echarts.ab94bd45.js"></script><script defer src="/home/static/js/lib-router.22ab4569.js"></script><script defer src="/home/static/js/34693.faa26133.js"></script><script defer src="/home/static/js/index.a785a6de.js"></script><link href="/home/static/css/34693.79a4d943.css" rel="stylesheet"><link href="/home/static/css/index.14fe6914.css" rel="stylesheet"></head>
+  <style>body>a{display: none;}</style>
+  <body class="normal">
+    <div id="app_mount_loading">
+      <div class="app_mount_loading-icon"></div>
+      <div class="app_mount_loading_fade—ball">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <script>
+      const loadingDom = document.getElementById('app_mount_loading')
+      setTimeout(function() {
+        if(loadingDom) {
+          loadingDom.style.display = 'flex'
+        }
+      }, 600)
+    </script>
+    <noscript>
+      <strong>您正在使用的浏览器不支持Javascript，请在设置中启用Javascript或更换其他浏览器。</strong>
+    </noscript>
+    <div id="app"></div>
+
+    <a href="http://beian.miit.gov.cn" target="_blank">京ICP备19054782号-2</a>
+  </body>
+ </html>

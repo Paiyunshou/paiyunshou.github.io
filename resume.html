@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>叶勇 - 个人简历</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2c3e50;
+  line-height: 1.7;
+  background: #eef2f5;
+  padding: 20px 0 40px;
+}
+
+/* 顶部返回栏 */
+.top-bar {
+  max-width: 1000px;
+  margin: 0 auto 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+.top-bar a {
+  color: #2c5f8a;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.top-bar a:hover { text-decoration: underline; }
+.top-bar .print-btn {
+  background: #2c5f8a;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.top-bar .print-btn:hover { background: #1a3a5c; }
+
+/* 简历主体 */
+.resume-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+
+/* 头部 */
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 48px 32px;
+  background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 100%);
+  color: #fff;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.resume-header-left { flex: 1; min-width: 280px; }
+.resume-name {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: 6px;
+  color: #fff;
+}
+.resume-title {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #a8d4f0;
+  font-weight: 500;
+}
+.resume-tagline {
+  font-size: 14px;
+  margin: 0;
+  color: #c8e0f0;
+  opacity: 0.9;
+}
+.resume-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+}
+.resume-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-icon { font-size: 18px; }
+
+/* 左侧底部联系方式横排 */
+.resume-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.resume-contact-row .resume-contact-item {
+  font-size: 14px;
+  gap: 8px;
+}
+.resume-contact-row .contact-icon {
+  font-size: 16px;
+}
+
+/* 照片 */
+.resume-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.resume-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.4);
+  object-fit: cover;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.1);
+}
+.resume-photo-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px dashed rgba(255,255,255,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  background: rgba(255,255,255,0.05);
+}
+.resume-photo-placeholder .photo-icon {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+/* 个人简介 */
+.resume-summary {
+  padding: 28px 48px;
+  background: #f0f6fb;
+  border-bottom: 1px solid #dce8f0;
+}
+.section-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a3a5c;
+  background: #d6e8f5;
+  padding: 4px 14px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+.resume-summary p {
+  margin: 0;
+  font-size: 15px;
+  color: #34495e;
+  text-align: justify;
+}
+
+/* 主体双栏 */
+.resume-body {
+  display: flex;
+  gap: 0;
+}
+
+/* 左栏 */
+.resume-sidebar {
+  width: 34%;
+  min-width: 280px;
+  padding: 32px 28px 32px 48px;
+  background: #f8fafc;
+  border-right: 1px solid #e8eef3;
+}
+.sidebar-section { margin-bottom: 32px; }
+.sidebar-section:last-child { margin-bottom: 0; }
+.sidebar-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a3a5c;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #2c5f8a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.title-icon { font-size: 18px; }
+
+/* 教育 */
+.edu-item { margin-bottom: 18px; }
+.edu-item:last-child { margin-bottom: 0; }
+.edu-school {
+  font-weight: 600;
+  font-size: 15px;
+  color: #2c3e50;
+}
+.edu-sub {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 2px;
+}
+.edu-degree {
+  font-size: 14px;
+  color: #34495e;
+  margin-top: 6px;
+}
+.edu-date {
+  font-size: 13px;
+  color: #95a5a6;
+  margin-top: 2px;
+}
+
+/* 证书 */
+.cert-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cert-list li {
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #e0e8ef;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cert-list li:last-child { border-bottom: none; }
+.cert-badge {
+  display: inline-block;
+  background: #2c5f8a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 3px;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* 技能标签 */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tag {
+  display: inline-block;
+  background: #e8f1f8;
+  color: #2c5f8a;
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 14px;
+  border: 1px solid #c8dff0;
+  transition: all 0.2s;
+}
+.skill-tag:hover {
+  background: #2c5f8a;
+  color: #fff;
+}
+
+/* 工具 */
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #34495e;
+}
+.tool-list li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #e0e8ef;
+}
+.tool-list li:last-child { border-bottom: none; }
+.tool-list strong { color: #1a3a5c; }
+
+/* 行业 */
+.industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.industry-tag {
+  display: inline-block;
+  background: #fef3e2;
+  color: #b87333;
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid #f5deb3;
+}
+
+/* 专业文章 */
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.article-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed #e0e8ef;
+}
+.article-item:last-child { border-bottom: none; }
+.article-item a {
+  color: #2c5f8a;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.5;
+}
+.article-item a:hover {
+  color: #1a3a5c;
+  text-decoration: underline;
+}
+.article-icon {
+  flex-shrink: 0;
+  font-size: 13px;
+  margin-top: 2px;
+}
+.article-date {
+  font-size: 12px;
+  color: #95a5a6;
+  margin-top: 3px;
+  padding-left: 20px;
+}
+
+/* 右栏 */
+.resume-main {
+  flex: 1;
+  padding: 32px 48px 32px 36px;
+}
+.main-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a3a5c;
+  margin: 0 0 28px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #2c5f8a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.main-section { margin-bottom: 40px; }
+.main-section:last-child { margin-bottom: 0; }
+
+/* 代表项目 */
+.project-card {
+  background: #f8fafc;
+  border: 1px solid #e0e8ef;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s;
+}
+.project-card:last-child { margin-bottom: 0; }
+.project-card:hover {
+  box-shadow: 0 2px 12px rgba(44,95,138,0.1);
+}
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.project-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a3a5c;
+}
+.project-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: #2c5f8a;
+  padding: 3px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.project-desc {
+  font-size: 14px;
+  color: #34495e;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.project-desc strong {
+  color: #1a3a5c;
+}
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px dashed #dce8f0;
+}
+.project-links-label {
+  font-size: 12px;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+.project-link {
+  font-size: 12px;
+  color: #2c5f8a;
+  text-decoration: none;
+  background: #e8f1f8;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid #c8dff0;
+  transition: all 0.2s;
+}
+.project-link:hover {
+  background: #2c5f8a;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 时间线 */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, #2c5f8a, #a8c8e0);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 3px solid #2c5f8a;
+  border-radius: 50%;
+  z-index: 1;
+}
+.timeline-item:first-child .timeline-dot {
+  background: #2c5f8a;
+  box-shadow: 0 0 0 5px rgba(44,95,138,0.15);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.job-company {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a3a5c;
+}
+.job-date {
+  font-size: 14px;
+  color: #7f8c8d;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.job-position {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2c5f8a;
+  margin-bottom: 12px;
+}
+.job-company-tag {
+  font-size: 13px;
+  font-weight: 400;
+  color: #95a5a6;
+  margin-left: 8px;
+}
+.job-desc {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14.5px;
+  color: #34495e;
+}
+.job-desc li {
+  margin-bottom: 8px;
+  text-align: justify;
+}
+.job-desc li:last-child { margin-bottom: 0; }
+.job-desc strong {
+  color: #1a3a5c;
+  font-weight: 600;
+}
+
+/* 底部 */
+.resume-footer {
+  padding: 20px 48px;
+  background: #f0f6fb;
+  border-top: 1px solid #dce8f0;
+  text-align: center;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+.resume-footer a {
+  color: #2c5f8a;
+  text-decoration: none;
+  font-weight: 500;
+}
+.resume-footer a:hover {
+  text-decoration: underline;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  body { padding: 10px 0 30px; }
+  .top-bar { padding: 0 12px; margin-bottom: 12px; }
+  .resume-header { padding: 28px 24px; }
+  .resume-name { font-size: 30px; letter-spacing: 3px; }
+  .resume-header-right { width: 100%; }
+  .resume-photo, .resume-photo-placeholder { width: 110px; height: 110px; }
+  .resume-contact-row { gap: 10px 16px; margin-top: 16px; padding-top: 14px; }
+  .resume-summary { padding: 24px; }
+  .resume-body { flex-direction: column; }
+  .resume-sidebar {
+    width: 100%;
+    padding: 28px 24px;
+    border-right: none;
+    border-bottom: 1px solid #e8eef3;
+  }
+  .resume-main { padding: 28px 24px; }
+  .resume-footer { padding: 16px 24px; }
+  .project-card { padding: 16px; }
+}
+
+/* 打印优化 */
+@media print {
+  body { background: #fff; padding: 0; }
+  .top-bar { display: none; }
+  .resume-page {
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+  }
+  .resume-header {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .skill-tag, .cert-badge, .industry-tag, .project-role, .project-link {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .project-card {
+    break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="/">← 返回博客首页</a>
+  <button class="print-btn" onclick="window.print()">🖨️ 打印 / 导出PDF</button>
+</div>
+
+<div class="resume-page">
+
+<header class="resume-header">
+<div class="resume-header-left">
+<h1 class="resume-name">叶 勇</h1>
+<p class="resume-title">财务总监 / 税务总监</p>
+<p class="resume-tagline">20多年财务管理经验 · 集团税务管理筹划 </p>
+<div class="resume-contact-row">
+  <div class="resume-contact-item"><span class="contact-icon">📱</span><span>139-0152-2393</span></div>
+  <div class="resume-contact-item"><span class="contact-icon">📧</span><span>stephen_ye@qq.com</span></div>
+  <div class="resume-contact-item"><span class="contact-icon">📍</span><span>江苏 · 无锡江阴</span></div>
+  <div class="resume-contact-item"><span class="contact-icon">🎂</span><span>1980.06</span></div>
+</div>
+</div>
+<div class="resume-header-right">
+<div class="resume-photo-wrapper">
+  <img class="resume-photo" src="/assets/photo.jpeg" alt="叶勇照片">
+</div>
+</div>
+</header>
+
+<section class="resume-summary">
+<div class="section-label">个人简介</div>
+<p>20多年全链条财务管理经验，深耕制造、新能源、工业服务三大领域，具备从基层会计到集团CFO的完整成长路径。从0-1搭建财务组织，实施ERP，搭建标准成本核算体系，构建资金管理，编制预算和财务报告体系。在出口退税、非居民税收、高企资质、新能源行业、地域优惠维护等专业税务领域深耕多年。在业财融合，投融资，成本管理，盈利能力管理和绩效评估等方面持续提升财务思维，具备跨国公司与大型集团的复合财税管理背景。</p>
+</section>
+
+<div class="resume-body">
+
+<aside class="resume-sidebar">
+
+<div class="sidebar-section">
+<h3 class="sidebar-title"><span class="title-icon">🎓</span> 教育背景</h3>
+<div class="edu-item">
+<div class="edu-school">厦门大学</div>
+<div class="edu-degree">硕士 · 企业管理（结业）</div>
+<div class="edu-date">2018.09 — 2020.06</div>
+</div>
+<div class="edu-item">
+<div class="edu-school">江苏科技大学</div>
+<div class="edu-degree">本科 · 会计学</div>
+<div class="edu-date">1999.09 — 2003.06</div>
+</div>
+</div>
+
+<div class="sidebar-section">
+<h3 class="sidebar-title"><span class="title-icon">📜</span> 专业证书</h3>
+<ul class="cert-list">
+<li><span class="cert-badge">CMA</span> 美国注册管理会计师</li>
+<li><span class="cert-badge">CTA</span> 注册税务师</li>
+<li><span class="cert-badge">中级</span> 中级会计师</li>
+<li><span class="cert-badge">高级</span> 高级会计师</li>
+</ul>
+</div>
+
+<div class="sidebar-section">
+<h3 class="sidebar-title"><span class="title-icon">⚡</span> 专业技能</h3>
+<div class="skill-tags">
+<span class="skill-tag">税务筹划</span>
+<span class="skill-tag">国际税收</span>
+<span class="skill-tag">出口退税</span>
+<span class="skill-tag">转移定价</span>
+<span class="skill-tag">高新认定</span>
+<span class="skill-tag">加计扣除</span>
+<span class="skill-tag">公司重组</span>
+<span class="skill-tag">EPC税务</span>
+<span class="skill-tag">成本管理</span>
+<span class="skill-tag">预算管理</span>
+<span class="skill-tag">内控合规</span>
+<span class="skill-tag">财务报告</span>
+</div>
+</div>
+
+<div class="sidebar-section">
+<h3 class="sidebar-title"><span class="title-icon">💻</span> 软件工具</h3>
+<ul class="tool-list">
+<li><strong>ERP系统：</strong>SAP、Kingdee、Mfg/Pro、4Shift</li>
+<li><strong>办公软件：</strong>Office（Excel高级应用）、飞书</li>
+<li><strong>报告系统：</strong>Oracle HFM</li>
+</ul>
+</div>
+
+<div class="sidebar-section">
+<h3 class="sidebar-title"><span class="title-icon">🏭</span> 行业领域</h3>
+<div class="industry-tags">
+<span class="industry-tag">新能源</span>
+<span class="industry-tag">机械制造</span>
+<span class="industry-tag">建筑材料</span>
+<span class="industry-tag">检查服务</span>
+<span class="industry-tag">电子器件制造</span>
+</div>
+</div>
+
+<div class="sidebar-section">
+<h3 class="sidebar-title"><span class="title-icon">📝</span> 专业文章</h3>
+<ul class="article-list">
+<li class="article-item">
+  <a href="/2026/01/08/货物出口贸易方式对退税影响/" target="_blank"><span class="article-icon">📄</span><span>货物出口贸易方式对退税影响</span></a>
+  <div class="article-date">2026.01 · 出口退税专题</div>
+</li>
+<li class="article-item">
+  <a href="/2026/01/16/视同出口之保税区/" target="_blank"><span class="article-icon">📄</span><span>视同出口之保税区</span></a>
+  <div class="article-date">2026.01 · 出口退税专题</div>
+</li>
+<li class="article-item">
+  <a href="/2026/01/06/企业司库Treasury/" target="_blank"><span class="article-icon">📄</span><span>企业司库Treasury</span></a>
+  <div class="article-date">2026.01 · 资金管理专题</div>
+</li>
+<li class="article-item">
+  <a href="/2025/12/26/管理会计Controlling/" target="_blank"><span class="article-icon">📄</span><span>管理会计Controlling</span></a>
+  <div class="article-date">2025.12 · 管理会计专题</div>
+</li>
+<li class="article-item">
+  <a href="/2025/12/24/存货/" target="_blank"><span class="article-icon">📄</span><span>存货</span></a>
+  <div class="article-date">2025.12 · 成本核算专题</div>
+</li>
+</ul>
+<div style="margin-top:12px; font-size:12px; color:#95a5a6;">
+  更多文章请访问 <a href="/" style="color:#2c5f8a; text-decoration:none;">我的博客</a>
+</div>
+</div>
+
+</aside>
+
+<main class="resume-main">
+
+<div class="main-section">
+<h2 class="main-title"><span class="title-icon">🏆</span> 代表项目</h2>
+
+<div class="project-card">
+  <div class="project-header">
+    <div class="project-name">集团出口退税流程优化项目</div>
+    <span class="project-role">项目负责人</span>
+  </div>
+  <div class="project-desc">
+    针对集团多业态出口业务（制造、风场、软件等）退税流程分散、周期长、合规风险高的问题，<strong>统一集团出口退税管理流程</strong>，建立贸易方式分类管理体系，优化单证收集与申报流程，实现退税全流程标准化与可视化。
+  </div>
+  <div class="project-links">
+    <span class="project-links-label">🔗 专题文章：</span>
+    <a class="project-link" href="/2026/01/08/货物出口贸易方式对退税影响/" target="_blank">货物出口贸易方式对退税影响</a>
+    <a class="project-link" href="/2026/01/16/视同出口之保税区/" target="_blank">视同出口之保税区</a>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-header">
+    <div class="project-name">新能源集团税务筹划体系建设</div>
+    <span class="project-role">核心成员</span>
+  </div>
+  <div class="project-desc">
+    搭建覆盖制造、风场、软件多业态的<strong>集团税务筹划框架</strong>，统筹高新认定、加计扣除、留抵退税、财政返还等税收优惠政策，实现优惠政策应享尽享；协调全国上百家子公司税务管理，有效降低集团整体税负。
+  </div>
+  <div class="project-links">
+    <span class="project-links-label">🔗 专题文章：</span>
+    <a class="project-link" href="/" target="_blank">加计抵减阶段性优惠</a>
+    <a class="project-link" href="/" target="_blank">最新留抵退税</a>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-header">
+    <div class="project-name">公司重组与股权架构税务方案</div>
+    <span class="project-role">税务负责人</span>
+  </div>
+  <div class="project-desc">
+    负责集团多次业务重组与股权架构调整的<strong>税务方案设计与落地</strong>，处理合伙企业税务、股权转让、特殊性税务处理、跨境重组等复杂问题，在合规前提下优化重组税务成本，保障重组交易顺利完成。
+  </div>
+  <div class="project-links">
+    <span class="project-links-label">🔗 专题文章：</span>
+    <a class="project-link" href="/" target="_blank">合伙企业股东缴税问题</a>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-header">
+    <div class="project-name">集团司库与资金税务管理体系</div>
+    <span class="project-role">参与搭建</span>
+  </div>
+  <div class="project-desc">
+    参与集团司库体系建设中的<strong>税务模块设计</strong>，制定资金池、内部借贷、跨境资金往来等业务的税务处理规则，实现资金税务风险可视化与可控化，支持集团资金高效运作与集中管理。
+  </div>
+  <div class="project-links">
+    <span class="project-links-label">🔗 专题文章：</span>
+    <a class="project-link" href="/2026/01/06/企业司库Treasury/" target="_blank">企业司库Treasury</a>
+  </div>
+</div>
+
+</div>
+
+<div class="main-section">
+<h2 class="main-title"><span class="title-icon">💼</span> 工作经历</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="job-header">
+<div class="job-company">远景能源有限公司</div>
+<div class="job-date">2015.12 — 至今</div>
+</div>
+<div class="job-position">税务经理</div>
+<ul class="job-desc">
+<li><strong>集团税务筹划：</strong>为集团提供专业税务建议，覆盖"走出去"国际税收、"引进来"非居民税收、税收优惠、税务检查、公司重组税务、EPC业务税务、高新及加计扣除、转移定价、出口退税、财政返还等全领域</li>
+<li><strong>业务税务支持：</strong>为制造、风场、软件等业务领域提供税务支持；协调全国上百家子公司税务管理与合规申报</li>
+<li><strong>税企关系维护：</strong>维护与税务局、财政局的良好关系；负责母公司税金预测及控制</li>
+<li><strong>风险与合规：</strong>母公司税务风险识别，各税种申报流程制定及合规管理</li>
+</ul>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="job-header">
+<div class="job-company">江阴图博斯科管材发展有限公司</div>
+<div class="job-date">2009.01 — 2015.11</div>
+</div>
+<div class="job-position">财务经理 <span class="job-company-tag">（NOV 子公司）</span></div>
+<ul class="job-desc">
+<li><strong>财务运作管理：</strong>负责公司整体财务运作，与运营团队共同规划公司业务及绩效；管理财务团队</li>
+<li><strong>系统建设：</strong>主导公司财务、库存及成本系统的建立与实施</li>
+<li><strong>报告编制：</strong>负责国内财务报告、集团 HFM 报告及管理报告编制</li>
+<li><strong>预算与绩效：</strong>编制年度预算，组织绩效考核</li>
+<li><strong>外部关系：</strong>维护银行、税务、事务所等外部关系；制定公司财务制度及相关流程</li>
+<li><strong>合规执行：</strong>执行集团 FCPA、SOX、会计控制、分析及税务相关要求</li>
+</ul>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="job-header">
+<div class="job-company">欧文斯科宁（江阴）建筑材料有限公司</div>
+<div class="job-date">2005.08 — 2008.12</div>
+</div>
+<div class="job-position">财务主管</div>
+<ul class="job-desc">
+<li><strong>成本管理：</strong>制定标准成本，实施标准成本核算系统，负责成本核算</li>
+<li><strong>运营分析：</strong>分析公司运营效率；每月价差、量差及期间费用差异分析；协同降低产品成本</li>
+<li><strong>预算管控：</strong>编制预算；管控生产成本与期间费用，确保完成预算目标</li>
+<li><strong>内控与流程：</strong>制定财务流程，提升工厂内部控制管理</li>
+<li><strong>综合事务：</strong>处理当地税务、外汇、银行、进出口等业务</li>
+</ul>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="job-header">
+<div class="job-company">江苏法尔胜股份有限公司</div>
+<div class="job-date">2004.04 — 2005.07</div>
+</div>
+<div class="job-position">会计</div>
+<ul class="job-desc">
+<li>每月销售数据分析；新客户信用控制；销售人员业绩评价</li>
+<li>内部各分厂成本归集及分配；固定资产每月登记及折旧处理</li>
+</ul>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="job-header">
+<div class="job-company">百格电子（南通）有限公司</div>
+<div class="job-date">2003.03 — 2004.03</div>
+</div>
+<div class="job-position">AR / AP 会计</div>
+<ul class="job-desc">
+<li><strong>AP 应付：</strong>三单匹配入账；AP Aging 周报及付款安排；供应商信用维护</li>
+<li><strong>AR 应收：</strong>内外销发票开具及入账；合同价格维护；AR Aging 周报，协助收款；客户信用信息维护</li>
+<li><strong>总账：</strong>GL 与明细账核对调和；内部成本中心费用报告</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+
+</main>
+
+</div>
+
+<footer class="resume-footer">
+<p>感谢阅读 · 欢迎访问我的博客 <a href="/">paiyunshou.github.io</a> · 简历中的项目文章可点击链接查看详情</p>
+</footer>
+
+</div>
+
+</body>
+</html>
